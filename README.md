@@ -1,6 +1,6 @@
-PMConf-SPMEAN
+SPMEAN
 ============
 
-Conference sessions by PixelMill - SharePoint Apps and I "MEAN" It
+SharePoint and MEAN Stack demo project
 
-session files contains all session files used in demos.
+Full instructions coming soon.
