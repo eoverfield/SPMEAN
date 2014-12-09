@@ -1,0 +1,20 @@
+<section data-ng-controller="BeersController" data-ng-init="find()">
+	<div class="page-header">
+		<h1>Beers</h1>
+	</div>
+	<div class="list-group">
+		<a data-ng-repeat="beer in beers" data-ng-href="#!/beers/{{beer.beerSku}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="beer.releaseDate | date:'mediumDate'"></span>
+				by
+				<span data-ng-bind="beer.beerSku"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="beer.name"></h4>
+			<p class="list-group-item-text" data-ng-bind="beer.description"></p>
+		</a>
+	</div>
+	<div class="alert alert-warning text-center" data-ng-if="beers.$resolved && !beers.length">
+		No beers yet, why don't you <a href="/#!/beers/create">create one</a>?
+	</div>
+</section>

@@ -1,0 +1,43 @@
+<section data-ng-controller="BeersController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1 data-ng-bind="beer.name"></h1>
+	</div>
+	<div class="pull-right">
+		<a class="btn btn-primary" href="/#!/beers/{{beer.beerSku}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+	<small>
+		<em class="text-muted">
+			Posted on
+			<span data-ng-bind="beer.releaseDate | date:'mediumDate'"></span>
+			by
+			<span data-ng-bind="beer.beerSku"></span>
+		</em>
+	</small>
+	<p class="lead" data-ng-bind="beer.description"></p>
+	
+	<div ng-if="beer.docs.results.length > 0">
+		<h3>Related Documents</h3>
+		<div data-ng-repeat="doc in beer.docs.results" class="list-group-item">
+			<small class="list-group-item-text" ng-if="doc.Title.length > 0">
+				Doc Title: <a href="https://pixelmill.sharepoint.com/sites/demo-mean-dev1{{doc.FileData.ServerRelativeUrl}}" target="_blank"><span data-ng-bind="doc.Title"></span> - <span data-ng-bind="doc.FileData.Name"></span></a>
+			</small><br />
+			<small class="list-group-item-text" ng-if="doc.Keywords.length > 0">
+				Keywords: <span data-ng-bind="doc.Keywords"></span>
+			</small><br />
+			<small class="list-group-item-text" ng-if="doc.OData__Comments.length > 0">
+				Comments: <span data-ng-bind="doc.OData__Comments"></span>
+			</small><br />
+			<small class="list-group-item-text" ng-if="doc.ImageWidth && doc.ImageHeight">
+				Image Dimensions: <span data-ng-bind="doc.ImageWidth"></span> x <span data-ng-bind="doc.ImageHeight"></span>
+			</small><br />
+			<small class="list-group-item-text" ng-if="doc.VideoWidthInPixels && doc.VideoHeightInPixels">
+				Video Dimensions: <span data-ng-bind="doc.VideoWidthInPixels"></span> x <span data-ng-bind="doc.VideoHeightInPixels"></span>
+			</small><br />
+		</div>
+	</div>
+</section>

@@ -1,0 +1,72 @@
+<section data-ng-controller="BeersController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1>Edit Beer</h1>
+	</div>
+	<div class="col-md-12">
+		<form name="beerForm" class="form-horizontal" data-ng-submit="update(beerForm.$valid)" novalidate>
+			<fieldset>
+				<div class="form-group">
+					<label class="control-label" for="beerSku">Beer Sku</label>
+					<div class="controls">
+						<span data-ng-bind="beer.beerSku"></span>
+					</div>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error' : submitted && beerForm.name.$invalid}">
+					<label class="control-label" for="name">Name</label>
+					<div class="controls">
+						<input name="name" type="text" data-ng-model="beer.name" id="name" class="form-control" placeholder="Name" required>
+					</div>
+					<div ng-show="submitted && beerForm.name.$invalid" class="help-block">
+						<p ng-show="beerForm.name.$error.required" class="text-danger">Name is required</p>
+					</div>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error' : submitted && beerForm.description.$invalid}">
+					<label class="control-label" for="description">Description</label>
+					<div class="controls">
+						<textarea name="description" data-ng-model="beer.description" id="description" class="form-control" cols="30" rows="5" placeholder="Description"></textarea>
+					</div>
+					<div ng-show="submitted && beerForm.description.$invalid" class="help-block">
+						<p ng-show="beerForm.description.$error.required" class="text-danger">Description is required</p>
+					</div>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error' : submitted && beerForm.labelUrl.$invalid}">
+					<label class="control-label" for="labelUrl">Label URL</label>
+					<div class="controls">
+						<input name="labelUrl" type="text" data-ng-model="beer.labelUrl" id="labelUrl" class="form-control" placeholder="Label Url">
+					</div>
+					<div ng-show="submitted && beerForm.labelUrl.$invalid" class="help-block">
+						<p ng-show="beerForm.labelUrl.$error.required" class="text-danger">Invalid Label Url</p>
+					</div>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error' : submitted && beerForm.releaseDate.$invalid}">
+					<label class="control-label" for="releaseDate">Release Date</label>
+					<div class="controls">
+						<input name="releaseDate" type="date" data-ng-model="beer.releaseDate" id="releaseDate" class="form-control" placeholder="Release Date">
+					</div>
+					<div ng-show="submitted && beerForm.releaseDate.$invalid" class="help-block">
+						<p ng-show="beerForm.releaseDate.$error.required" class="text-danger">Invalid Release Date</p>
+					</div>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error' : submitted && beerForm.available.$invalid}">
+					<label class="control-label" for="available">Available</label>
+					<div class="controls">
+						<select name="available" data-ng-model="beer.available" id="available" class="form-control">
+							<option value="0">Not Available</option>
+							<option value="1">Available</option>
+						</select>
+					</div>
+					<div ng-show="submitted && beerForm.available.$invalid" class="help-block">
+						<p ng-show="beerForm.available.$error.required" class="text-danger">Availability Required</p>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<input type="submit" value="Update" class="btn btn-default">
+				</div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</section>
