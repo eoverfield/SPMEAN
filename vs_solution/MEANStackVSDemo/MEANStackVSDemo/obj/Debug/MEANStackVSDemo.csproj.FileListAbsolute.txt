@@ -1,0 +1,4 @@
+E:\Datastore\Git Projects\PM Conferences\SPMEAN\vs_solution\MEANStackVSDemo\MEANStackVSDemo\bin\Debug\MEANStackVSDemo.dll.config
+E:\Datastore\Git Projects\PM Conferences\SPMEAN\vs_solution\MEANStackVSDemo\MEANStackVSDemo\bin\Debug\MEANStackVSDemo.pdb
+E:\Datastore\Git Projects\PM Conferences\SPMEAN\vs_solution\MEANStackVSDemo\MEANStackVSDemo\obj\Debug\MEANStackVSDemo.dll
+E:\Datastore\Git Projects\PM Conferences\SPMEAN\vs_solution\MEANStackVSDemo\MEANStackVSDemo\obj\Debug\MEANStackVSDemo.pdb
