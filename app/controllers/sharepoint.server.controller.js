@@ -29,7 +29,8 @@ exports.me = function(req, res) {
 		port : 443,
 		path : sharepointServer.path + '_api/web/currentuser',
 		headers : headers,
-		ciphers: 'RC4',
+		agent: false,
+		//ciphers: 'RC4',
 		secureOptions: require('constants').SSL_OP_NO_TLSv1_2
 	};
 	
@@ -98,7 +99,8 @@ exports.beerDocsList = function(req, res) {
 		port : 443,
 		path : sharepointServer.path + '_api/Web/Lists/GetByTitle(\'pbAssetLibrary\')/items/?$select=Id,Title,AssetSku/Title&$expand=AssetSku/Title&$top=100',
 		headers : headers,
-		ciphers: 'RC4',
+		agent: false,
+		//ciphers: 'RC4',
 		secureOptions: require('constants').SSL_OP_NO_TLSv1_2
 	};
 		
@@ -181,7 +183,8 @@ exports.beerDocsGetByBeerSku = function(req, beerSku, done) {
 		//path : sharepointServer.path + '_api/Web/Lists/GetByTitle(\'pbAssetLibrary\')/items/?$select=Id,Title,AssetSku/Title&$expand=AssetSku/Title&$filter=AssetSku/Title%20eq%20\'' + beerSku + '\'&$top=100',
 		path : sharepointServer.path + '_api/Web/Lists/GetByTitle(\'pbAssetLibrary\')/items/?&$filter=AssetSku/Title%20eq%20\'' + beerSku + '\'&$top=100',
 		headers : headers,
-		ciphers: 'RC4',
+		agent: false,
+		//ciphers: 'RC4',
 		secureOptions: require('constants').SSL_OP_NO_TLSv1_2
 	};
 	
@@ -282,7 +285,8 @@ exports.beerDocsGetFileById = function(req, fileId, done) {
 		port : 443,
 		path : sharepointServer.path + '_api/Web/Lists/GetByTitle(\'pbAssetLibrary\')/items(' + fileId + ')/File',
 		headers : headers,
-		ciphers: 'RC4',
+		agent: false,
+		//ciphers: 'RC4',
 		secureOptions: require('constants').SSL_OP_NO_TLSv1_2
 	};
 	
@@ -342,7 +346,8 @@ exports.skusList = function(req, res) {
 		port : 443,
 		path : sharepointServer.path + '_api/Web/Lists/GetByTitle(\'pbAssetSkus\')/items/?$select=Id,Title,ContentTypeId&$top=100',
 		headers : headers,
-		ciphers: 'RC4',
+		agent: false,
+		//ciphers: 'RC4',
 		secureOptions: require('constants').SSL_OP_NO_TLSv1_2
 	};
 		
@@ -442,7 +447,8 @@ exports.skusGetOne = function(req, beerSku, done) {
 		port : 443,
 		path : sharepointServer.path + '_api/Web/Lists/GetByTitle(\'pbAssetSkus\')/items/?$select=Id,Title,ContentTypeId&$filter=Title%20eq%20\'' + beerSku + '\'',
 		headers : headers,
-		ciphers: 'RC4',
+		agent: false,
+		//ciphers: 'RC4',
 		secureOptions: require('constants').SSL_OP_NO_TLSv1_2
 	};
 		
@@ -562,7 +568,8 @@ exports.skusCreateOne = function(req, json, done) {
 			path : sharepointServer.path + '_api/lists/GetByTitle(\'pbAssetSkus\')/items',
 			headers : headers,
 			method : 'POST',
-			ciphers: 'RC4',
+			agent: false,
+			//ciphers: 'RC4',
 			secureOptions: require('constants').SSL_OP_NO_TLSv1_2
 		};	
 		
@@ -633,7 +640,8 @@ exports.loadAppPostSample = function(req, res) {
 			path : sharepointServer.path + '_api/Web/Lists/GetByTitle(\'pbAssetLibrary\')/GetItems(query=@v1)?@v1={\'ViewXml\':\'<View><Query></Query></View>\'}',
 			headers : headers,
 			method: 'POST',
-			ciphers: 'RC4',
+			agent: false,
+			//ciphers: 'RC4',
 			secureOptions: require('constants').SSL_OP_NO_TLSv1_2
 		};
 		
@@ -693,7 +701,8 @@ exports.getFormDigest = function(req, done) {
 		path : sharepointServer.path + '_api/contextinfo',	
 		headers : headers,
 		method: 'POST',
-		ciphers: 'RC4',
+		agent: false,
+		//ciphers: 'RC4',
 		secureOptions: require('constants').SSL_OP_NO_TLSv1_2
 	};
 	var myReq = https.request(options, function(myRes) {
