@@ -1,0 +1,33 @@
+//the following script will create a sample database (meanBeerApp), three collections (tables) and then populate the beers collection with sample data
+//finishes by finding (selecting) the records (rows) in the beers collection
+
+show dbs
+use meanBeerApp
+db.createCollection("sessions")
+db.createCollection("users")
+db.createCollection("beers")
+show collections
+
+var myBeers =
+    [
+      {
+		beerSku: 'pb001',
+		name: 'Pale Ale',
+		description: 'Our winter pale ale',
+		labelUrl: '',
+		releaseDate: ISODate('2014-11-01T09:00:00.000Z'),
+		available: 1
+      },
+      {
+		beerSku: 'pb002',
+		name: 'Scottish Ale',
+		description: 'Seasonal Scottish Ale',
+		labelUrl: '',
+		releaseDate: ISODate('2014-09-01T09:00:00.000Z'),
+		available: 1
+      }
+    ];
+db.beers.insert(myBeers);
+db.beers.find();
+
+//db.beers.drop();
